@@ -270,95 +270,26 @@
 <!--blog end -->
 
 		<!--contact start-->
-		<footer id="contact"  class="contact">
+		<footer id="contact" class="contact">
 			<div class="container">
 				<div class="footer-top">
 					<div class="row">
-						<div class="col-md-3 col-sm-6">
-							<div class="single-footer-widget">
-								<div class="footer-logo">
-									<a href="index.html">Ascari Token</a>
+						<div class="col-md-6 col-sm-12">
+							<h2>Subscribe for Updates</h2>
+							<form id="subscribe-form">
+								<div class="input-group">
+									<input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+									<button type="submit" class="btn btn-primary">Subscribe</button>
 								</div>
-								<!-- <p>
-									Ased do eiusm tempor incidi ut labore et dolore magnaian aliqua. Ut enim ad minim veniam.
-								</p>
-								<div class="footer-contact">
-									<p>info@themesine.com</p>
-									<p>+1 (885) 2563154554</p>
-								</div>
-							</div>
-						</div> -->
-						<!-- <div class="col-md-2 col-sm-6">
-							<div class="single-footer-widget">
-								<h2>about devloon</h2>
-								<ul>
-									<li><a href="#">about us</a></li>
-									<li><a href="#">career</a></li>
-									<li><a href="#">terms <span> of service</span></a></li>
-									<li><a href="#">privacy policy</a></li>
-								</ul>
-							</div>
-						</div> -->
-						<!-- <div class="col-md-3 col-xs-12">
-							<div class="single-footer-widget">
-								<h2>top brands</h2>
-								<div class="row">
-									<div class="col-md-7 col-xs-6">
-										<ul>
-											<li><a href="#">BMW</a></li>
-											<li><a href="#">lamborghini</a></li>
-											<li><a href="#">camaro</a></li>
-											<li><a href="#">audi</a></li>
-											<li><a href="#">infiniti</a></li>
-											<li><a href="#">nissan</a></li>
-										</ul>
-									</div>
-									<div class="col-md-5 col-xs-6">
-										<ul>
-											<li><a href="#">ferrari</a></li>
-											<li><a href="#">porsche</a></li>
-											<li><a href="#">land rover</a></li>
-											<li><a href="#">aston martin</a></li>
-											<li><a href="#">mersedes</a></li>
-											<li><a href="#">opel</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-offset-1 col-md-3 col-sm-6">
-							<div class="single-footer-widget">
-								<h2>news letter</h2>
-								<div class="footer-newsletter">
-									<p>
-										Subscribe to get latest news  update and informations
-									</p>
-								</div> -->
-								<div class="hm-foot-email">
-									<div class="foot-email-box">
-										<input type="text" class="form-control" placeholder="Add Email">
-									</div><!--/.foot-email-box-->
-									<div class="foot-email-subscribe">
-										<span><i class="fa fa-arrow-right"></i></span>
-									</div><!--/.foot-email-icon-->
-								</div><!--/.hm-foot-email-->
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 				<div class="footer-copyright">
-					<div class="row">
-						<div class="col-sm-6">
-							<p>							</p><!--/p-->
-						</div>
-						<div class="col-sm-6">
-							<div class="footer-social">
-								<a href="#"><i class="fa fa-instagram"></i></a>
-							</div>
-						</div>
-					</div>
-				</div><!--/.footer-copyright-->
-			</div><!--/.container-->
+					<p>&copy; 2024 Ascari Token. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
 
 			<div id="scroll-Top">
 				<div class="return-to-top">
@@ -369,7 +300,24 @@
 			
         </footer><!--/.contact-->
 		<!--contact end-->
-
+<!-- Scripts -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/bootsnav.js"></script>
+<script>
+	document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const email = e.target.email.value;
+		const response = await fetch('/api/subscribe', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email }),
+		});
+		const result = await response.json();
+		alert(result.message || result.error);
+	});
+</script>
 		<script src="assets/js/jquery.js"></script>
         
         <!--modernizr.min.js-->
