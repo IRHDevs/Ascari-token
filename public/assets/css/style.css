@@ -736,5 +736,22 @@ nav.navbar.bootsnav .navbar-toggle i{color: #4e4ffa;}
     height: auto; /* Maintains the aspect ratio of the image */
     display: block; /* Removes any inline spacing caused by the image being treated as inline content */
 }
+.new-cars-img {
+    perspective: 1000px; /* Adds a 3D perspective */
+}
 
-/*========================Thank you=================
+.new-cars-img img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    transform-style: preserve-3d; /* Enables 3D transformations */
+    display: block;
+    margin: auto;
+}
+
+.new-cars-img:hover img {
+    transform: rotateY(15deg) rotateX(10deg); /* Adds 3D rotation in both X and Y axes */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); /* Enhances depth with shadow */
+}
+
+.new-cars-img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image for a more dynamic effect */
+}
